@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import datetime
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
 from .database import SessionLocal, engine, Base
 from . import models, crud, pricing, simulator, schemas, payment
@@ -11,6 +12,20 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Flight Management API")
 
+
+
+origins = [
+    "http://127.0.0.1:5500",
+    "http://localhost:5500"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 def get_db():
     db = SessionLocal()
     try:

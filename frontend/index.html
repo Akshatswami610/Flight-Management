@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Search | Booking System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Flight Booking Simulator</h1>
+  </header>
+
+  <section class="search-section">
+    <h2>Search Flights</h2>
+    <form id="searchForm">
+      <input type="text" id="origin" placeholder="Origin (e.g. DEL)" required>
+      <input type="text" id="destination" placeholder="Destination (e.g. BOM)" required>
+      <input type="date" id="date" required>
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <section id="results">
+    <h2>Available Flights</h2>
+    <table id="flightsTable">
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Flight No</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Price (₹)</th>
+          <th>Seats</th>
+          <th>Book</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="js/api.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>
