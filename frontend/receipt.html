@@ -2,13 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Booking Receipt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Receipt | Infosys Booking System</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h2>Booking Receipt</h2>
-  <pre id="receiptData">Loading...</pre>
-  <button id="downloadBtn">Download JSON</button>
+  <!-- Added navigation header -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">✈️ FlightHub</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Search</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="receipt.html" class="active">Receipt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Improved header -->
+  <header>
+    <div class="container">
+      <h1>Your Booking Receipt</h1>
+      <p>Confirmation details for your flight reservation</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="receipt-container" id="receiptContainer">
+      <div class="receipt-header">
+        <h2>✅ Booking Confirmed</h2>
+        <span class="status-badge confirmed">Confirmed</span>
+      </div>
+
+      <div id="receiptLoading" style="text-align: center; padding: 40px;">
+        <div class="loading"></div>
+        <p style="margin-top: 10px; color: var(--text-secondary);">Loading your receipt...</p>
+      </div>
+
+      <div id="receiptData" style="min-height: 200px; display: none;"></div>
+
+      <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <button id="downloadBtn" class="success">📥 Download Receipt</button>
+        <button onclick="window.print()" class="secondary">🖨️ Print Receipt</button>
+        <a href="index.html" style="text-decoration: none;"><button class="secondary">🔍 Search Again</button></a>
+      </div>
+    </div>
+  </main>
 
   <script src="js/api.js"></script>
   <script src="js/receipt.js"></script>
